@@ -1,3 +1,30 @@
 <div ng-controller="SettingsCtrl as settings">
     <input type="text" ng-model="settings.key" placeholder="Key" />
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lead" for="#settings-view-deckViewType">
+                Deck View
+            </label>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                <!--<select ng-model="settings.view.deckViewType" class="form-control" id="settings-view-deckViewType">
+                    <option value="list">List</option>
+                    <option value="cards">Cards</option>
+                </select>-->
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="settings.view.deckViewType" autocomplete="off" value="list">
+                        <span class="fa fa-bars"></span> List
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="settings.view.deckViewType" autocomplete="off" value="cards">
+                        <span class="fa fa-th"></span> Cards
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

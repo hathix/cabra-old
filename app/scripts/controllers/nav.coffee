@@ -16,4 +16,4 @@ angular.module('cabraApp')
 
       $scope.clear = ->
           localStorageService.clearAll()
-          alert "BOOM"
+          window.location.reload()
