@@ -8,12 +8,17 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="bower_components/bootswatch/paper/bootstrap.min.css" />
+    <!-- end custom styles -->
   </head>
   <body ng-app="cabraApp">
     <!--[if lt IE 7]>
@@ -21,34 +26,49 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">cabra</h3>
-      </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-left">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <span class="fa fa-arrow-left"></span>
+                        </a>
+                    </li>
+                </ul>
+            </span>
+
+            <a class="navbar-brand" href="#/">
+                <span class="fa fa-lightbulb-o"></span>
+                cabra
+            </a>
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Main</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/about">About</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Made with <span class="fa fa-heart"></span> in Cambridge, MA</p>
       </div>
     </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -75,6 +95,14 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/controllers/deck.js"></script>
+        <script src="scripts/controllers/deckstudy.js"></script>
+        <script src="scripts/controllers/deckmanage.js"></script>
+        <script src="scripts/controllers/deckcreate.js"></script>
+        <script src="scripts/controllers/decknew.js"></script>
+        <script src="scripts/services/decks.js"></script>
+        <script src="scripts/services/settings.js"></script>
         <!-- endbuild -->
 </body>
 </html>

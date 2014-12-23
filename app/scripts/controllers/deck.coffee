@@ -2,15 +2,15 @@
 
 ###*
  # @ngdoc function
- # @name cabraApp.controller:MainCtrl
+ # @name cabraApp.controller:DeckCtrl
  # @description
- # # MainCtrl
+ # # DeckCtrl
  # Controller of the cabraApp
 ###
 angular.module('cabraApp')
-  .controller 'MainCtrl', ($scope) ->
+  .controller 'DeckCtrl', ($scope) ->
     $scope.awesomeThings = [
-      'Cards',
-      'Decks',
-      'More'
+      'HTML5 Boilerplate'
+      'AngularJS'
+      'Karma'
     ]
