@@ -8,9 +8,7 @@
  # Controller of the cabraApp
 ###
 angular.module('cabraApp')
-  .controller 'SettingsCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'SettingsCtrl', ($scope, settings) ->
+    $scope.settings = settings
+    $scope.$on 'settings.update', ->
+        $scope.settings = settings

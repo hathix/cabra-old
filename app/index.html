@@ -39,8 +39,7 @@
             </span>
 
             <a class="navbar-brand" href="#/">
-                <span class="fa fa-lightbulb-o"></span>
-                cabra
+                Cabra
             </a>
 
             <div class="navbar-header">
@@ -63,12 +62,20 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-      <div ng-view=""></div>
-
-      <div class="footer">
-        <p>Made with <span class="fa fa-heart"></span> in Cambridge, MA</p>
+    <div class="container">
+      <div ng-view="">
+          <!-- page content here -->
       </div>
     </div>
+
+
+
+    <div class="footer well navbar-fixed-bottom" ng-controller="AboutCtrl as about">
+        <p>Cabra Flashcards, &copy; 2011 &mdash; {{date | date:'yyyy'}}</p>
+        <p>Made with <span class="fa fa-heart"></span> in <a href="http://hathix.com">Cambridge, MA</a></p>
+    </div>
+
+    <!-- End custom site content -->
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -88,6 +95,9 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-underscore/angular-underscore.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

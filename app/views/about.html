@@ -1,1 +1,10 @@
-<p>This is the about view.</p>
+<div ng-controller="AboutCtrl as about">
+    <h2 class="text-center">Cabra {{version}}</h2>
+
+    <ul ng-repeat="(key, value) in links">
+        <a href="{{value.url}}" target="_blank">
+            <span class="fa fa-{{value.icon}}"></span>
+            {{key}}
+        </a>
+    </ul>
+</div>

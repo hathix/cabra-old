@@ -15,8 +15,12 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule'
   ])
+  .config(['localStorageServiceProvider', (provider) ->
+      provider.setPrefix 'ca'
+     ])
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
@@ -45,4 +49,3 @@ angular
         controller: 'DecknewCtrl'
       .otherwise
         redirectTo: '/'
-
