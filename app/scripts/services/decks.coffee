@@ -10,7 +10,9 @@
 angular.module('cabraApp')
   .service 'decks', ($rootScope, localStorageService)->
     # AngularJS will instantiate a singleton by calling "new" on this function
-    $rootScope.decks = localStorageService.get('decks') ? {}
+    $rootScope.decks = localStorageService.get('decks') ? {
+        list: []
+    }
 
     $rootScope.$watch 'decks', () ->
         localStorageService.set 'decks', $rootScope.decks

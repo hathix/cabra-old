@@ -32,20 +32,23 @@ angular
       .when '/settings',
         templateUrl: 'views/settings.html'
         controller: 'SettingsCtrl'
-      .when '/deck',
+      .when '/deck/:deckId',
         templateUrl: 'views/deck.html'
         controller: 'DeckCtrl'
-      .when '/deck/study',
+      .when '/deck/:deckId/study',
         templateUrl: 'views/deckstudy.html'
         controller: 'DeckstudyCtrl'
-      .when '/deck/manage',
+      .when '/deck/:deckId/manage',
         templateUrl: 'views/deckmanage.html'
         controller: 'DeckmanageCtrl'
-      .when '/deck/create',
+      .when '/deck/:deckId/create',
         templateUrl: 'views/deckcreate.html'
         controller: 'DeckcreateCtrl'
-      .when '/deck/new',
+      .when '/decks/new',
         templateUrl: 'views/decknew.html'
-        controller: 'DecknewCtrl'
+        controller: 'DeckNewCtrl'
+      .when '/search',
+        templateUrl: 'views/search.html'
+        controller: 'SearchCtrl'
       .otherwise
         redirectTo: '/'

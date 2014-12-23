@@ -8,9 +8,16 @@
  # Controller of the cabraApp
 ###
 angular.module('cabraApp')
-  .controller 'DecknewCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'DeckNewCtrl', ($scope, decks) ->
+      $scope.decks = decks
+      $scope.$on 'decks.update', ->
+          $scope.decks = decks
+
+      $scope.deck = {}
+      $scope.addDeck = ->
+          # Dynamically generate a deck ID
+          $scope.deck.id = Date.now() + ""
+
+          # Add to the list
+          $scope.decks.list.push $scope.deck
+          $scope.deck = {}

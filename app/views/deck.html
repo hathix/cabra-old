@@ -1,1 +1,18 @@
-<p>This is the deck view.</p>
+<div ng-controller="DeckCtrl as deckCtrl">
+    <h3 ng-hide="isEditing()">
+        {{deck.name}}
+        <small>{{deck.description}}</small>
+        <button ng-click="setEditing(true)" class="btn btn-default">
+            Edit
+        </button>
+    </h3>
+    <h3 ng-show="isEditing()">
+        <form ng-model="deck" ng-submit="saveDeck()" class="form form-inline">
+            <input type="text" class="form-control input-lg" ng-model="deck.name" placeholder="Name">
+            <input type="text" class="form-control" ng-model="deck.description" placeholder="Description">
+            <button type="submit" class="btn btn-primary">
+                Done
+            </button>
+        </form>
+    </h3>
+</div>

@@ -1,9 +1,22 @@
 
 <div ng-controller="MainCtrl as main">
-    Decks: {{decks}}<br>
-    Settings: {{settings}}
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="deck in decks.list | orderBy: 'name'">
+            <a href="#/deck/{{deck.id}}">
+                {{deck.name}}
+            </a>
+        </div>
+    </div>
+
 </div>
 
-<div ng-controller="SettingsCtrl as settings">
-    <input type="text" ng-model="settings.key" placeholder="Key" />
+<div ng-controller="DeckNewCtrl as deckCtrl">
+    <form ng-model="deck" ng-submit="addDeck()" class="form">
+        <h3>New deck</h3>
+        <input type="text" class="form-control input-lg" ng-model="deck.name" placeholder="Name">
+        <input type="text" class="form-control" ng-model="deck.description" placeholder="Description">
+        <button type="submit" class="btn btn-primary">
+            Add
+        </button>
+    </form>
 </div>

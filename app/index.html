@@ -2,8 +2,8 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+    <title>Cabra Flashcards</title>
+    <meta name="description" content="Free studynig app">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -26,12 +26,12 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl as nav">
         <div class="container-fluid">
             <span class="navbar-left">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">
+                        <a href ng-click="back()">
                             <span class="fa fa-arrow-left"></span>
                         </a>
                     </li>
@@ -42,6 +42,21 @@
                 Cabra
             </a>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Main</a></li>
+                    <li><a href="#/settings">Settings</a></li>
+                    <li><a href="#/about">About</a></li>
+
+                    <li>
+                        <a href ng-click="clear()">
+                            <span class="fa fa-bomb">
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -50,15 +65,6 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/">Main</a></li>
-                    <li><a href="#/settings">Settings</a></li>
-                    <li><a href="#/about">About</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
@@ -96,7 +102,6 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-    <script src="bower_components/angular-underscore/angular-underscore.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -113,6 +118,8 @@
         <script src="scripts/controllers/decknew.js"></script>
         <script src="scripts/services/decks.js"></script>
         <script src="scripts/services/settings.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/controllers/search.js"></script>
         <!-- endbuild -->
 </body>
 </html>
