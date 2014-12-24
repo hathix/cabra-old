@@ -33,7 +33,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href ng-click="back()">
-                                <span class="fa fa-arrow-left"></span>
+                                <span class="fa fa-lg fa-arrow-left"></span>
                             </a>
                         </li>
                     </ul>
@@ -43,18 +43,17 @@
                     Cabra
                 </a>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                <span class="navbar-right">
+                    <ul class="nav navbar-nav">
                         <li>
                             <a href ng-click="toggleSidebar()">
-                                <span class="fa"
+                                <span class="fa fa-lg"
                                     ng-class="{'fa-bars': !isSidebarOpen(), 'fa-close': isSidebarOpen()}">
                                 </span>
                             </a>
                         </li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
+                </span>
 
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -67,8 +66,8 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-        <div class="sidebar well" ng-class="{ open: isSidebarOpen() }">
-            <ul class="nav">
+        <div class="sidebar panel panel-default panel-body well" ng-class="{ open: isSidebarOpen() }" ng-click="closeSidebar()">
+            <ul class="nav lead">
                 <li><a href="#/">Main</a></li>
                 <li><a href="#/settings">Settings</a></li>
                 <li><a href="#/about">About</a></li>

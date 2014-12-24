@@ -110,3 +110,77 @@ $sidebar-width: 200px;
 .sidebar.open {
     right: 0;
 }
+
+// Utility styles
+.no-side-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+// EXPERIMENTAL
+// Undo responsive navbar
+@media all{
+    .navbar-right .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+    .navbar-left {
+        float: left !important;
+    }
+    .navbar-right {
+        float: right !important;
+    }
+    .navbar-nav {
+        float: left;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        float: left;
+    }
+    .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+    .navbar > .container .navbar-brand {
+        margin-left: -15px;
+    }
+    .navbar-fixed-top,
+    .navbar-fixed-bottom {
+        border-radius: 0;
+    }
+    .navbar-static-top {
+        border-radius: 0;
+    }
+    .container > .navbar-header,
+    .container > .navbar-collapse {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        box-shadow: none;
+    }
+    .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+    .navbar-collapse.in {
+        overflow-y: visible;
+    }
+    .navbar-collapse .navbar-nav.navbar-left:first-child {
+        margin-left: -15px;
+    }
+    .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: -15px;
+    }
+    .navbar-collapse .navbar-text:last-child {
+        margin-right: 0;
+    }
+}

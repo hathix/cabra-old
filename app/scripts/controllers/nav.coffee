@@ -23,3 +23,5 @@ angular.module('cabraApp')
       $scope.isSidebarOpen = -> $scope.sidebarOpen
       $scope.toggleSidebar = ->
           $scope.sidebarOpen = !$scope.sidebarOpen
+      $scope.closeSidebar = ->
+          $scope.sidebarOpen = false

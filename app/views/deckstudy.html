@@ -20,26 +20,77 @@
     </div>
 
     <div ng-show="isStage(Stages.STUDYING)">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                {{session[index].card.question}}
-            </div>
-            <div class="panel-footer">
-                {{session[index].card.answer}}
-            </div>
+        <div class="well">
+            <button class="btn btn-default" ng-class="{'disabled': isFirstCard()}" ng-click="changeIndex(-1)">
+                <span class="fa fa-chevron-left">
+            </button>
+            <span class="fa fa-check" ng-show="getCurrentItem().result != Results.NOT_STUDIED"></span>
+            {{index + 1}} of {{session.length}}
+            <button class="btn btn-default" ng-class="{'btn-primary': isLastCard()}" ng-click="changeIndex(1)">
+                <span class="fa fa-chevron-right">
+            </button>
         </div>
 
-        <button class="btn btn-default" ng-class="{'disabled': isFirstCard()}" ng-click="changeIndex(-1)">
-            <span class="fa fa-chevron-left">
-        </button>
-        {{index + 1}} of {{session.length}}
-        <button class="btn btn-default" ng-class="{'btn-primary': isLastCard()}" ng-click="changeIndex(1)">
-            <span class="fa fa-chevron-right">
-        </button>
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p class="lead">
+                            {{getCurrentItem().card.question}}
+                        </p>
+                    </div>
+                    <div class="panel-footer" ng-show="isBackShown()">
+                        <p class="lead">
+                            {{getCurrentItem().card.answer}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="btn-group-vertical btn-lg btn-block no-side-padding" role="group" ng-show="isBackShown()">
+                    <button class="btn btn-success btn-lg" ng-click="studyCard(Results.KNOWN)">
+                        <span class="fa fa-check visible-xs"></span>
+                        <span class="hidden-xs">Know it</span>
+                    </button>
+                    <button class="btn btn-warning btn-lg" ng-click="studyCard(Results.SORT_OF)">
+                        <span class="fa fa-minus visible-xs"></span>
+                        <span class="hidden-xs">Sort of</span>
+                    </button>
+                    <button class="btn btn-danger btn-lg" ng-click="studyCard(Results.UNKNOWN)">
+                        <span class="fa fa-close visible-xs"></span>
+                        <span class="hidden-xs">Don't Know</span>
+                    </button>
+                </div>
+
+
+                <p ng-show="!isBackShown()">
+                    <button class="btn btn-primary btn-block btn-lg" ng-click="showBack()">
+                        <span class="fa fa-refresh visible-xs"></span>
+                        <span class="hidden-xs">Flip</span>
+                    </button>
+                </p>
+            </div>
+        </div>
     </div>
 
     <div ng-show="isStage(Stages.REVIEW)">
         Studied {{session.length}} cards
+
+
+        <ul>
+            <li>Known: {{getNumResults(Results.KNOWN)}}</li>
+            <li>Sort: {{getNumResults(Results.SORT_OF)}}</li>
+            <li>Not: {{getNumResults(Results.UNKNOWN)}}</li>
+            <li>Skipped: {{getNumResults(Results.NOT_STUDIED)}}</li>
+        </ul>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: {{getPercentResults(Results.KNOWN)}}%"></div>
+            <div class="progress-bar progress-bar-warning" style="width: {{getPercentResults(Results.SORT_OF)}}%"></div>
+            <div class="progress-bar progress-bar-danger" style="width: {{getPercentResults(Results.UNKNOWN)}}%"></div>
+            <div class="progress-bar progress-bar-primary" style="width: {{getPercentResults(Results.NOT_STUDIED)}}%"></div>
+        </div>
+
         <a href class="btn btn-default" ng-click="upOneLevel()">Back</a>
     </div>
 </div>
