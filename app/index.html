@@ -26,59 +26,66 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl as nav">
-        <div class="container-fluid">
-            <span class="navbar-left">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href ng-click="back()">
-                            <span class="fa fa-arrow-left"></span>
-                        </a>
-                    </li>
-                </ul>
-            </span>
+    <section ng-controller="NavCtrl as nav">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <span class="navbar-left">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href ng-click="back()">
+                                <span class="fa fa-arrow-left"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </span>
 
-            <a class="navbar-brand" href="#/">
-                Cabra
-            </a>
+                <a class="navbar-brand" href="#/">
+                    Cabra
+                </a>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/">Main</a></li>
-                    <li><a href="#/settings">Settings</a></li>
-                    <li><a href="#/about">About</a></li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href ng-click="toggleSidebar()">
+                                <span class="fa"
+                                    ng-class="{'fa-bars': !isSidebarOpen(), 'fa-close': isSidebarOpen()}">
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
 
-                    <li>
-                        <a href ng-click="clear()">
-                            <span class="fa fa-bomb">
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-        </div><!-- /.container-fluid -->
-    </nav>
+        <div class="sidebar well" ng-class="{ open: isSidebarOpen() }">
+            <ul class="nav">
+                <li><a href="#/">Main</a></li>
+                <li><a href="#/settings">Settings</a></li>
+                <li><a href="#/about">About</a></li>
+
+                <li>
+                    <a href ng-click="clear()">
+                        <span class="fa fa-bomb"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
     <div class="container">
       <div ng-view="">
           <!-- page content here -->
       </div>
-    </div>
-
-
-
-    <div class="footer well navbar-fixed-bottom" ng-controller="AboutCtrl as about">
-        <p>Cabra Flashcards, &copy; 2011 &mdash; {{date | date:'yyyy'}}</p>
-        <p>Made with <span class="fa fa-heart"></span> in <a href="http://hathix.com">Cambridge, MA</a></p>
     </div>
 
     <!-- End custom site content -->

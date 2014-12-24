@@ -1,6 +1,9 @@
 // bower:scss
 // endbower
 
+$navbar-height: 64px;
+$sidebar-width: 200px;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -80,10 +83,30 @@
 
 // Custom styles
 .container {
-    margin-top: 80px;
+    margin-top: $navbar-height;
+    padding-top: 32px;
 }
 
 .footer {
     margin: 0 !important;
     text-align: center;
+}
+
+.sidebar {
+    // TODO make it responsive
+    position: fixed;
+    top: $navbar-height;
+    height: 100%;
+    width: $sidebar-width;
+    z-index: 1;
+
+    transition: right 0.3s ease-in-out;
+    transform: translate3d(0,0,0);
+
+    // closed by default
+    right: -$sidebar-width;
+}
+
+.sidebar.open {
+    right: 0;
 }

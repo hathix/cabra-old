@@ -17,3 +17,9 @@ angular.module('cabraApp')
       $scope.clear = ->
           localStorageService.clearAll()
           window.location.reload()
+
+      # handle the sidebar
+      $scope.sidebarOpen = false
+      $scope.isSidebarOpen = -> $scope.sidebarOpen
+      $scope.toggleSidebar = ->
+          $scope.sidebarOpen = !$scope.sidebarOpen
