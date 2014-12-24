@@ -8,9 +8,8 @@
  # Controller of the cabraApp
 ###
 angular.module('cabraApp')
-  .controller 'DeckCtrl', ($scope, decks, $routeParams) ->
-      $scope.deck = _.find decks.list, (deck) ->
-          deck.id == $routeParams.deckId
+  .controller 'DeckCtrl', ($scope, decks, helpers, $routeParams) ->
+      $scope.deck = helpers.getDeckById $routeParams.deckId
 
       # Handling interface; TODO refactor into directive
       $scope.editing = false
@@ -18,5 +17,4 @@ angular.module('cabraApp')
       $scope.setEditing = (editing) -> $scope.editing = editing
 
       $scope.saveDeck = ->
-
           $scope.setEditing false

@@ -15,8 +15,10 @@ angular.module('cabraApp')
 
       $scope.deck = {}
       $scope.addDeck = ->
+          # Add other important fields
           # Dynamically generate a deck ID
-          $scope.deck.id = Date.now() + ""
+          $scope.deck.id = "d" + Date.now() + ""
+          $scope.deck.cards = []
 
           # Add to the list
           $scope.decks.list.push $scope.deck
