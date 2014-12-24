@@ -16,5 +16,16 @@
         </form>
     </h3>
 
-    <create-card></create-card>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" ng-repeat="(key, value) in subpages | orderBy: 'name'" ng-show="{{deck.cards.length}} || {{value.showIfEmpty}}">
+            <a href="#deck/{{deck.id}}/{{value.url}}">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <span class="fa fa-{{value.icon}} fa-3x"></span>
+                        <p class="lead">{{key}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

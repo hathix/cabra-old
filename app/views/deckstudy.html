@@ -1,1 +1,45 @@
-<p>This is the deckStudy view.</p>
+<div ng-controller="DeckstudyCtrl as deckCtrl">
+    <div ng-show="isStage(Stages.SETUP)">
+        <form class="form form-horizontal" ng-submit="finishSetup()">
+            <div class="form-group">
+                <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 lead" for="#study-mode">
+                    Which cards to study
+                </label>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                    <select ng-model="settings.mode" class="form-control" id="study-mode">
+                        <option value="{{Modes.DEFAULT}}">Default</option>
+                        <option value="{{Modes.ALL_CARDS}}">All cards</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+                Start
+            </button>
+        </form>
+    </div>
+
+    <div ng-show="isStage(Stages.STUDYING)">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {{session[index].card.question}}
+            </div>
+            <div class="panel-footer">
+                {{session[index].card.answer}}
+            </div>
+        </div>
+
+        <button class="btn btn-default" ng-class="{'disabled': isFirstCard()}" ng-click="changeIndex(-1)">
+            <span class="fa fa-chevron-left">
+        </button>
+        {{index + 1}} of {{session.length}}
+        <button class="btn btn-default" ng-class="{'btn-primary': isLastCard()}" ng-click="changeIndex(1)">
+            <span class="fa fa-chevron-right">
+        </button>
+    </div>
+
+    <div ng-show="isStage(Stages.REVIEW)">
+        Studied {{session.length}} cards
+        <a href class="btn btn-default" ng-click="upOneLevel()">Back</a>
+    </div>
+</div>

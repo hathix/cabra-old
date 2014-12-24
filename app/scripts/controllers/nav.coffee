@@ -9,10 +9,10 @@
  # Handles the navigation bar
 ###
 angular.module('cabraApp')
-  .controller 'NavCtrl', ($scope, localStorageService) ->
+  .controller 'NavCtrl', ($scope, helpers, localStorageService) ->
       # Go back in history (i.e. to the previous page)
       $scope.back = ->
-          history.go -1
+          helpers.back()
 
       $scope.clear = ->
           localStorageService.clearAll()

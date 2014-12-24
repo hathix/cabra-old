@@ -8,9 +8,8 @@
  # Controller of the cabraApp
 ###
 angular.module('cabraApp')
-  .controller 'DeckmanageCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'DeckmanageCtrl', ($scope, helpers, $routeParams) ->
+      $scope.deck = helpers.getDeckById $routeParams.deckId
+
+      $scope.deleteCard = (card) ->
+          $scope.deck.cards = _.without $scope.deck.cards, card
