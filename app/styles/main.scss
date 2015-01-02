@@ -111,10 +111,18 @@ $sidebar-width: 200px;
     right: 0;
 }
 
+#about-img-holder{
+    max-width: 300px;
+}
+
 // Utility styles
 .no-side-padding {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.center {
+    margin: auto;
 }
 
 // EXPERIMENTAL
